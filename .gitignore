@@ -8,6 +8,9 @@
 *.so
 *.dylib
 
+# generate executable files
+bin
+
 # Test binary, built with `go test -c`
 *.test
 
