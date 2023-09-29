@@ -13,7 +13,6 @@ jobs:
         uses: cgetc/automatically-set-milestone-to-issue@v0.1.4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          version-prefix: "v-"
 
       # https://github.com/pozil/auto-assign-issue
       - name: add issue assignees

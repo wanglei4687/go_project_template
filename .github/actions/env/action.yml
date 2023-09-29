@@ -14,4 +14,4 @@ runs:
       with:
         check-latest: true
         go-version:
-          ${{ env.-version }}
+          ${{ env.go-version }}
