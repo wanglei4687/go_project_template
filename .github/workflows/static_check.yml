@@ -1,0 +1,19 @@
+name: labels
+
+on: push
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: set env
+        uses:  ./.github/actions/env
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: v1.54
+          args: --timeout 8m0s

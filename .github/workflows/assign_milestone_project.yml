@@ -1,0 +1,31 @@
+name: milestone
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/cgetc/automatically-set-milestone-to-issue
+      - name: add issue to latest milestone
+        uses: cgetc/automatically-set-milestone-to-issue@v0.1.4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version-prefix: "v-"
+
+      # https://github.com/pozil/auto-assign-issue
+      - name: add issue assignees
+        uses: pozil/auto-assign-issue@v1
+        with:
+          assignees: wanglei4687
+          numOfAssignee: 1
+          allowSelfAssign: true
+      
+      # https://github.com/actions/add-to-project
+      - name: add issue to project
+        uses: actions/add-to-project@v0.5.0
+        with:
+          project-url: https://github.com/users/wanglei4687/projects/6
+          github-token: ${{ secrets.PERSON  }}

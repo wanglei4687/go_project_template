@@ -1,0 +1,19 @@
+name: labels
+
+on: push
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: labels
+        if: success()
+        uses: crazy-max/ghaction-github-labeler@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          yaml-file: .github/labels.yml
+          skip-delete: false
+          dry-run: false
